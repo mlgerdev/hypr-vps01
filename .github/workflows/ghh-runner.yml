@@ -16,8 +16,19 @@ jobs:
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
+          # Make sure to securely add the private key content here
           echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGD7/WlWNiHhfTZjwbrjbMR9UhXGiHS0w26NCJOSEVxN mlger@DESKTOP-SBP4CGS" > ~/.ssh/id_ed25519.pub
+          chmod 600 ~/.ssh/id_ed25519.pub
           # Add any additional configurations or SSH setup steps here
+
+      - name: Add User with Root Access
+        run: |
+          # Add a new user
+          sudo useradd -m ghrunner -s /bin/bash
+          echo 'ghrunner:ghrunner' | sudo chpasswd
+
+          # Grant sudo (root) access to the ghrunner
+          sudo usermod -aG sudo ghrunner
 
       - name: Display Hostname and IP
         run: |
