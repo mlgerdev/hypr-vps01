@@ -21,14 +21,10 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519.pub
           # Add any additional configurations or SSH setup steps here
 
-      - name: Add User with Root Access
+      - name: Install KDE Plasma Desktop Environment
         run: |
-          # Add a new user
-          sudo useradd -m ghrunner -s /bin/bash
-          echo 'ghrunner:ghrunner' | sudo chpasswd
-
-          # Grant sudo (root) access to the ghrunner
-          sudo usermod -aG sudo ghrunner
+          sudo apt-get update
+          sudo apt-get install -y kubuntu-desktop
 
       - name: Display Hostname and IP
         run: |
