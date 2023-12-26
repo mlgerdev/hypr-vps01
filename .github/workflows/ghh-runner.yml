@@ -16,15 +16,7 @@ jobs:
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
-          echo "-----BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABDoGihxJW
-ciOGzAz+XvZeb4AAAAEAAAAAEAAAAzAAAAC3NzaC1lZDI1NTE5AAAAIGD7/WlWNiHhfTZj
-wbrjbMR9UhXGiHS0w26NCJOSEVxNAAAAoKdAj+FgYhUAIy5BK6BPLQg39diZXGdM4THjGI
-CJqSHHOhlWcNjytl+kkF96BXOhqqmKNzCw6S9lueDJJ2SptNUnuBTIrzVWxAgBY2hnhXnM
-aMNFeshYDl5yYwYhq3mgkjycp/iDta1IUiFNcpuESESn2XEAnIgTwfs3RMlE46YnIusxZO
-hhKkXPxmnE5T2ZDRKBqeJ/MBsJRCPL22jITiU=
------END OPENSSH PRIVATE KEY-----" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
+          echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGD7/WlWNiHhfTZjwbrjbMR9UhXGiHS0w26NCJOSEVxN mlger@DESKTOP-SBP4CGS" > ~/.ssh/id_ed25519.pub
           # Add any additional configurations or SSH setup steps here
 
       - name: Start NGROK tunnel
