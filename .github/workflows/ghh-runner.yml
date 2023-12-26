@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  ng_tcp:
+  ngrok_tunnel:
     runs-on: ubuntu-latest
 
     env:
@@ -26,4 +26,4 @@ jobs:
 
       - name: Start NGROK tunnel
         run: |
-          docker run --net=host -it -e NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN} ngrok/ngrok:latest tcp 22
+          docker run --net=host -e NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN} ngrok/ngrok:latest tcp 22
