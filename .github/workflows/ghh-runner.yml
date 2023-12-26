@@ -12,17 +12,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.test.SSH_PRIVATE_KEY }}
-          NGROK_AUTHTOKEN: ${{ secrets.test.NGROK_AUTHTOKEN }}
 
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          echo "${{ secrets.test.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           # Add any additional configurations or SSH setup steps here
 
       - name: Start NGROK tunnel
         run: |
-          docker run --net=host -e NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN} ngrok/ngrok:latest tcp 22
+          docker run --net=host -e NGROK_AUTHTOKEN=${{ secrets.test.NGROK_AUTHTOKEN }} ngrok/ngrok:latest tcp 22
