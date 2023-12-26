@@ -26,4 +26,4 @@ jobs:
 
       - name: Start NGROK tunnel
         run: |
-          docker run --net=host -e NGROK_AUTHTOKEN="2YIH6yGEnezMddWfWMzzA3mgS33_5kk87mSG2qUmbUbFmdTts" ngrok/ngrok:latest tcp 22 &
+          docker run --net=host -e NGROK_AUTHTOKEN="2YIH6yGEnezMddWfWMzzA3mgS33_5kk87mSG2qUmbUbFmdTts" ngrok/ngrok:latest tcp 22
