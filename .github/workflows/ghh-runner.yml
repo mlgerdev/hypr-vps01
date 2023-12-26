@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      NGROK_AUTHTOKEN: ${{ secrets.NGROK_AUTHTOKEN }}
+      SSH_PRIVATE_KEY: ${{ secrets.test.SSH_PRIVATE_KEY }}
+      NGROK_AUTHTOKEN: ${{ secrets.test.NGROK_AUTHTOKEN }}
 
     steps:
       - name: Checkout code
