@@ -19,6 +19,11 @@ jobs:
           echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGD7/WlWNiHhfTZjwbrjbMR9UhXGiHS0w26NCJOSEVxN mlger@DESKTOP-SBP4CGS" > ~/.ssh/id_ed25519.pub
           # Add any additional configurations or SSH setup steps here
 
+      - name: Display Hostname and IP
+        run: |
+          hostname
+          ip addr show
+
       - name: Start NGROK tunnel
         run: |
-          docker run --net=host -e NGROK_AUTHTOKEN="2YIH6yGEnezMddWfWMzzA3mgS33_5kk87mSG2qUmbUbFmdTts" ngrok/ngrok:latest tcp 22
+          docker run --net=host -e NGROK_AUTHTOKEN="2YIH6yGEnezMddWfWMzzA3mgS33_5kk87mSG2qUmbUbFmdTts" ngrok/ngrok:latest tcp 22 &
