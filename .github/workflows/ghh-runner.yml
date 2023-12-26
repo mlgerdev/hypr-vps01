@@ -9,13 +9,12 @@ jobs:
   ngrok_tunnel:
     runs-on: ubuntu-latest
 
-    env:
-      SSH_PRIVATE_KEY: ${{ secrets.test.SSH_PRIVATE_KEY }}
-      NGROK_AUTHTOKEN: ${{ secrets.test.NGROK_AUTHTOKEN }}
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.test.SSH_PRIVATE_KEY }}
+          NGROK_AUTHTOKEN: ${{ secrets.test.NGROK_AUTHTOKEN }}
 
       - name: Set up SSH
         run: |
